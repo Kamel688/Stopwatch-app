@@ -1,0 +1,291 @@
+*,
+::before,
+::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+@font-face {
+  font-family: digital;
+  src: url(/digital-dismay/Digital\ Dismay.otf);
+}
+html {
+  font-size: 62.5%;
+}
+
+body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100vh;
+  background-image: linear-gradient(315deg, #045de9 0%, #4faaff 74%);
+  -webkit-transition: background-image 1s;
+  transition: background-image 1s;
+}
+
+.body-red {
+  background-image: linear-gradient(315deg, #e93904 0%, #ff724f 74%);
+}
+
+.body-green {
+  background-image: linear-gradient(315deg, #00ca7d 0%, #00fa9a 74%);
+}
+
+.body-blue {
+  background-image: linear-gradient(315deg, #045de9 0%, #4faaff 74%);
+}
+
+.stopwatch {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-top: 4em;
+  min-width: 400px;
+  min-height: 450px;
+  background-color: white;
+  background-color: rgba(36, 36, 36, 0.8);
+  border-radius: 8px;
+  -webkit-box-shadow: 0 0 10px #000;
+          box-shadow: 0 0 10px #000;
+  overflow: hidden;
+}
+.stopwatch__header {
+  margin-top: 1em;
+  font-size: 3rem;
+  font-weight: 300;
+  color: rgb(89, 171, 238);
+  text-align: center;
+}
+.stopwatch__btns {
+  position: absolute;
+  bottom: 0;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+}
+.stopwatch__btn {
+  margin: 0 1em;
+  border: none;
+  background: none;
+  font-size: 2.9rem;
+  color: rgb(89, 171, 238);
+  cursor: pointer;
+  z-index: 2;
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+.stopwatch__start-btn {
+  z-index: 1;
+}
+.stopwatch__round-btn {
+  -webkit-transform: translateX(-80px);
+          transform: translateX(-80px);
+}
+.stopwatch__reset-btn {
+  -webkit-transform: translateX(80px);
+          transform: translateX(80px);
+}
+.stopwatch__round-btn, .stopwatch__reset-btn {
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: opacity 0.2s, visibility 0.2s, -webkit-transform 0.4s;
+  transition: opacity 0.2s, visibility 0.2s, -webkit-transform 0.4s;
+  transition: transform 0.4s, opacity 0.2s, visibility 0.2s;
+  transition: transform 0.4s, opacity 0.2s, visibility 0.2s, -webkit-transform 0.4s;
+}
+.stopwatch__show-btn {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+  opacity: 1;
+  visibility: visible;
+}
+.stopwatch__btn-resize {
+  -webkit-animation: resize 0.4s linear;
+          animation: resize 0.4s linear;
+}
+.stopwatch__btn-none {
+  display: none;
+}
+.stopwatch__outer {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  border: 5px solid rgba(89, 171, 238, 0.5);
+  border-radius: 50%;
+}
+.stopwatch__inner {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  -webkit-transform: rotate(-90deg);
+          transform: rotate(-90deg);
+}
+.stopwatch__inner-circle {
+  fill: none;
+  stroke: rgb(89, 171, 238);
+  stroke-width: 5px;
+  stroke-dasharray: 925;
+  stroke-dashoffset: 925;
+  opacity: 0;
+}
+.stopwatch__timer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  font-size: 5rem;
+  color: rgb(89, 171, 238);
+  font-family: digital;
+}
+.stopwatch__round-timer {
+  position: absolute;
+  top: 65%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  font-size: 2.5rem;
+  color: rgb(89, 171, 238);
+  font-family: digital;
+  visibility: hidden;
+}
+.stopwatch__round {
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  min-width: 360px;
+  min-height: 410px;
+  max-height: 410px;
+  background-color: rgb(241, 241, 241);
+  border-radius: 8px;
+  -webkit-box-shadow: 0 0 10px #000;
+          box-shadow: 0 0 10px #000;
+  overflow-y: scroll;
+}
+.stopwatch__round table {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-bottom: 0.5em;
+  font-size: 1.6rem;
+}
+.stopwatch__round table th, .stopwatch__round table td {
+  padding: 0.2em 0.8em;
+  text-align: center;
+}
+.stopwatch__round-title {
+  margin-top: 1em;
+  margin-bottom: 1em;
+  font-size: 2.2rem;
+  text-align: center;
+  text-transform: uppercase;
+}
+.stopwatch__round-btn-close {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 3.4rem;
+  border: none;
+  cursor: pointer;
+}
+.stopwatch__panel-btns {
+  position: absolute;
+  top: 20px;
+  right: 10px;
+}
+.stopwatch__panel-btn {
+  margin: 0 0.4em;
+  border: none;
+  background: none;
+  font-size: 2.3rem;
+  color: rgb(89, 171, 238);
+  cursor: pointer;
+}
+.stopwatch__colors {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: absolute;
+  bottom: 66px;
+  -webkit-transform: translate(280px, -50%);
+          transform: translate(280px, -50%);
+  opacity: 0;
+  -webkit-transition: 0.8s;
+  transition: 0.8s;
+}
+.stopwatch__colors-show {
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
+  opacity: 1;
+}
+.stopwatch__color {
+  margin: 0 1.5em;
+  width: 12px;
+  height: 12px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+}
+.stopwatch__red {
+  background-color: tomato;
+  -webkit-box-shadow: 0px 0px 3px rgb(255, 138, 117);
+          box-shadow: 0px 0px 3px rgb(255, 138, 117);
+}
+.stopwatch__green {
+  background-color: mediumspringgreen;
+  -webkit-box-shadow: 0px 0px 3px rgb(0, 255, 157);
+          box-shadow: 0px 0px 3px rgb(0, 255, 157);
+}
+.stopwatch__blue {
+  background-color: royalblue;
+  -webkit-box-shadow: 0px 0px 3px rgb(63, 163, 245);
+          box-shadow: 0px 0px 3px rgb(63, 163, 245);
+}
+
+@-webkit-keyframes resize {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(0.9);
+            transform: scale(0.9);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes resize {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  50% {
+    -webkit-transform: scale(0.9);
+            transform: scale(0.9);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}/*# sourceMappingURL=main.css.map */

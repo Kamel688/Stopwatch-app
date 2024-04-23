@@ -1,0 +1,11 @@
+$blue-color: rgb(89, 171, 238);
+$blue-color-shadow: rgba(89, 171, 238,0);
+$blue-color-disabled: rgb(89, 171, 238, 0.6);
+$red-color: rgb(255, 114, 79);
+$green-color: rgb(0, 250, 154);
+
+$blue-gradient: linear-gradient(315deg, #045de9 0%, #4faaff 74%);
+$red-gradient: linear-gradient(315deg, #e93904 0%, #ff724f 74%);
+$green-gradient: linear-gradient(315deg, #00ca7d 0%, #00fa9a 74%);
+
+$blue-gradienttest: linear-gradient(315deg, rgb(4, 93, 233) 0%, rgb(79, 170, 255) 74%);

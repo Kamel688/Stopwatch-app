@@ -1,0 +1,254 @@
+@use '_colors.scss' as *;
+
+*, 
+::before, 
+::after {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+@font-face {
+    font-family: digital;
+    src: url(/digital-dismay/Digital\ Dismay.otf);
+}
+
+html {
+	font-size: 62.5%;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    // background-color: #c9c9c9;
+    background-image: $blue-gradient;
+    transition: background-image 1s;
+}
+.body-red{
+    background-image: $red-gradient;
+}
+.body-green{
+    background-image: $green-gradient;
+}
+.body-blue{
+    background-image: $blue-gradient;
+}
+
+
+
+.stopwatch{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    padding-top: 4em;
+    min-width: 400px;
+    min-height: 450px;
+    background-color: white;
+    background-color: rgba(36, 36, 36, 0.8);
+    border-radius: 8px;
+    box-shadow: 0 0 10px #000;
+    overflow: hidden;
+    //transform: scale(1.05);
+    &__header{
+        margin-top: 1em;
+        font-size: 3rem;
+        font-weight: 300;
+        color: $blue-color;
+        text-align: center;
+    }
+    &__btns{
+        position: absolute;
+        bottom: 0;
+        transform: translateY(-50%);
+
+    }
+    &__btn{
+        margin: 0 1em;
+        border: none;
+        background: none;
+        font-size: 2.9rem;
+        color: $blue-color;
+        cursor: pointer;
+        z-index: 2;
+        transition: 0.3s;
+    }
+    // &__btn:disabled{
+    //     color: $blue-color-disabled;
+    // }
+    
+    &__start-btn{
+        z-index: 1;
+    }
+    &__round-btn{
+        transform: translateX(-80px);
+    }
+    &__reset-btn{
+        transform: translateX(80px);
+    }
+    &__round-btn, &__reset-btn{
+        opacity: 0;
+        visibility: hidden;
+        transition: transform 0.4s, opacity 0.2s, visibility 0.2s;
+    }
+    
+    &__show-btn{
+        transform: translateX(0);
+        opacity: 1;
+        visibility: visible;
+    }
+    &__btn-resize{
+        animation: resize 0.4s linear;
+
+    }
+    &__btn-none{
+        display: none;
+    }
+
+    &__outer{
+        position: relative; 
+        width: 300px;
+        height: 300px;
+        border: 5px solid rgba(89, 171, 238,0.5);
+        border-radius: 50%;
+    }
+    &__inner{
+        position: absolute;
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        transform: rotate(-90deg);
+    }
+    &__inner-circle{
+        fill: none;
+        stroke: $blue-color;
+        stroke-width: 5px;
+        stroke-dasharray: 925;
+        stroke-dashoffset: 925;
+        opacity: 0;
+        //transition: stroke-dashoffset 0.6s, opacity 1s;
+    }
+    &__timer{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 5rem;
+        color: $blue-color;
+        font-family: digital;
+    }
+    &__round-timer{
+        position: absolute;
+        top: 65%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 2.5rem;
+        color: $blue-color;
+        font-family: digital;
+        visibility: hidden;
+    }
+    &__round{
+        display: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        min-width: 360px;
+        min-height: 410px;
+        max-height: 410px;
+        //max-height: 410px;
+        background-color: rgb(241, 241, 241);
+        border-radius: 8px;
+        box-shadow: 0 0 10px #000;
+        overflow-y: scroll;
+        
+        
+        table{
+            display: flex;
+            justify-content: center;
+            padding-bottom: 0.5em;
+            font-size: 1.6rem;
+            th, td{
+                padding: 0.2em 0.8em;
+                text-align: center;
+            }
+        }
+    
+    }
+    &__round-title{
+        margin-top: 1em;
+        margin-bottom: 1em;
+        font-size: 2.2rem;
+        text-align: center;
+        text-transform: uppercase;
+    }
+    &__round-btn-close{
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        font-size: 3.4rem;
+        border: none;
+        cursor: pointer;
+    }
+    &__panel-btns{
+        position: absolute;
+        top: 20px;
+        right: 10px;
+    }
+    &__panel-btn{
+        //margin-right: 0.6em;
+        margin: 0 0.4em;
+        border: none;
+        background: none;
+        font-size: 2.3rem;
+        color: $blue-color;
+        cursor: pointer;
+    }
+    &__colors{
+       display: flex;
+       position: absolute;
+       bottom: 66px;
+       transform: translate(280px,-50%);
+       opacity: 0;
+       transition: 0.8s;
+
+    }
+    &__colors-show{
+        transform: translateX(0);
+        opacity: 1;
+    }
+    
+    &__color{
+        margin: 0 1.5em;
+        width: 12px;
+        height: 12px;
+        border: none;
+        border-radius: 50%;
+        cursor: pointer;
+    }
+    &__red{
+        background-color: tomato;
+        box-shadow: 0px 0px 3px rgb(255, 138, 117);
+    }
+    &__green{
+        background-color: mediumspringgreen;
+        //background-color: #12bd95;
+        box-shadow: 0px 0px 3px rgb(0, 255, 157);
+    }
+    &__blue{
+        background-color: royalblue;
+        box-shadow: 0px 0px 3px rgb(63, 163, 245);
+    }
+}
+
+@keyframes resize {
+    0%{
+        transform: scale(1);
+    }
+    50%{
+        transform: scale(0.9);
+    }
+    100%{
+        transform: scale(1);
+    }
+}

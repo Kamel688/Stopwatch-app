@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stoper</title>
+    <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+    rel="stylesheet"
+    />
+    <script src="https://kit.fontawesome.com/6ee12b0358.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="stopwatch">
+            <div class="stopwatch__outer">
+                <p class="stopwatch__timer">00:00:00</p>
+                <p class="stopwatch__round-timer">00:00:00</p>
+            </div>
+            <svg class="stopwatch__inner" xmlns="http://www.w3.org/2000/svg" version="1.1" width="350px" height="350px">
+                <defs>
+                   <linearGradient id="GradientColor">
+                      <stop offset="0%" stop-color="#e91e63" />
+                      <stop offset="100%" stop-color="#673ab7" />
+                   </linearGradient>
+                </defs>
+                <circle class="stopwatch__inner-circle" cx="150" cy="150" r="147.5" stroke-linecap="round" />
+            </svg>
+            <div class="stopwatch__btns">
+                <button class="stopwatch__btn stopwatch__reset-btn"><i class="fa-solid fa-arrow-rotate-right"></i></button>
+                <button class="stopwatch__btn stopwatch__start-btn"><i class="fa-solid fa-play"></i></button>
+                <button class="stopwatch__btn stopwatch__pause-btn stopwatch__btn-none"><i class="fa-solid fa-pause"></i></button>
+                <button class="stopwatch__btn stopwatch__round-btn"><i class="fa-regular fa-flag"></i></button>
+            </div>
+            <div class="stopwatch__colors">
+                <button class="stopwatch__color stopwatch__red" data-color="red"></button>
+                <button class="stopwatch__color stopwatch__green" data-color="green"></button>
+                <button class="stopwatch__color stopwatch__blue" data-color="blue"></bur>
+            </div>
+            <div class="stopwatch__panel-btns">
+                <button class="stopwatch__panel-btn stopwatch__panel-btn-colors"><i class="fa-solid fa-paintbrush"></i></button>
+                <button class="stopwatch__panel-btn stopwatch__panel-btn-times"><i class="fa-regular fa-hourglass"></i></button>
+            </div>
+            <div class="stopwatch__round">
+                <h2 class="stopwatch__round-title">Okrążenia</h2>
+                <button class="stopwatch__round-btn-close"><i class="fa-regular fa-circle-xmark"></i></button>
+                <table class="stopwatch__round-table">
+                    <tr class="stopwatch__round-table-row-title">
+                        <th>Nr okrązenia</th>
+                        <th>Czas okrążenia</th>
+                        <th>Łącznie</th>
+                    </tr>
+                    <!-- <tr>
+                        <td>01</td>
+                        <td>01:01:01</td>
+                        <td>01:01:01</td>
+                    </tr>
+                    <tr>
+                        <td>01</td>
+                        <td>01:01:01</td>
+                        <td>01:01:01</td>
+                    </tr>
+                    <tr>
+                        <td>01</td>
+                        <td>01:01:01</td>
+                        <td>01:01:01</td>
+                    </tr>
+                    <tr>
+                        <td>01</td>
+                        <td>01:01:01</td>
+                        <td>01:01:01</td>
+                    </tr>
+                    <tr>
+                        <td>01</td>
+                        <td>01:01:01</td>
+                        <td>01:01:01</td>
+                    </tr>
+                    <tr>
+                        <td>01</td>
+                        <td>01:01:01</td>
+                        <td>01:01:01</td>
+                    </tr>
+                    <tr>
+                        <td>01</td>
+                        <td>01:01:01</td>
+                        <td>01:01:01</td>
+                    </tr> -->
+                </table>
+            </div>
+        </div>
+    </div>
+    <script src="/js/main.js"></script>
+</body>
+</html>
